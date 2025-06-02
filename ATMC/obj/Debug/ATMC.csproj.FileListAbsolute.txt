@@ -1,0 +1,9 @@
+D:\2025-2\Practicas\ATMC\ATMC\bin\Debug\ATMC.exe.config
+D:\2025-2\Practicas\ATMC\ATMC\bin\Debug\ATMC.exe
+D:\2025-2\Practicas\ATMC\ATMC\bin\Debug\ATMC.pdb
+D:\2025-2\Practicas\ATMC\ATMC\obj\Debug\ATMC.csproj.AssemblyReference.cache
+D:\2025-2\Practicas\ATMC\ATMC\obj\Debug\ATMC.Properties.Resources.resources
+D:\2025-2\Practicas\ATMC\ATMC\obj\Debug\ATMC.csproj.GenerateResource.cache
+D:\2025-2\Practicas\ATMC\ATMC\obj\Debug\ATMC.csproj.CoreCompileInputs.cache
+D:\2025-2\Practicas\ATMC\ATMC\obj\Debug\ATMC.exe
+D:\2025-2\Practicas\ATMC\ATMC\obj\Debug\ATMC.pdb
