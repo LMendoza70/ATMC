@@ -12,8 +12,12 @@ namespace ATMC
 {
     public partial class Form1 : Form
     {
+        //creamos el objeto de la clase cuenta como atributo de la clase
+        private CuentaFree cuenta;
         public Form1()
         {
+            //inizializamos el objeto en el contructor
+            cuenta=new CuentaFree();
             InitializeComponent();
         }
 
