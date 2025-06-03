@@ -16,5 +16,15 @@ namespace ATMC
         {
             InitializeComponent();
         }
+
+        private void btnRetiro_MouseMove(object sender, MouseEventArgs e)
+        {
+            this.btnRetiro.BackColor = System.Drawing.Color.Red;
+        }
+
+        private void btnRetiro_MouseLeave(object sender, EventArgs e)
+        {
+            this.btnRetiro.BackColor = System.Drawing.Color.Transparent;
+        }
     }
 }
