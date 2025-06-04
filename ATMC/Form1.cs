@@ -12,12 +12,21 @@ namespace ATMC
 {
     public partial class Form1 : Form
     {
+<<<<<<< HEAD
 
         //definimos atributos
         private CuentaFree cuenta;
         public Form1()
         {
             cuenta = new CuentaFree();
+=======
+        //creamos el objeto de la clase cuenta como atributo de la clase
+        private CuentaFree cuenta;
+        public Form1()
+        {
+            //inizializamos el objeto en el contructor
+            cuenta=new CuentaFree();
+>>>>>>> 00b5aed459f2000a0515ce50e2f92eb873cf0c92
             InitializeComponent();
         }
 
@@ -25,7 +34,8 @@ namespace ATMC
         {
             txtNombre.Text = cuenta.Nombre;
             txtNumCuenta.Text = cuenta.NumCuenta;
-            txtSaldo.Text = "$ "+cuenta.Saldo;
+            txtSaldo.Text = "$ " + cuenta.Saldo;
+            
         }
 
         private void btnDeposito_Click(object sender, EventArgs e)
