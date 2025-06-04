@@ -29,7 +29,6 @@ namespace ATMC
         /// </summary>
         private void InitializeComponent()
         {
-            this.cuenta = new CuentaFree();
             this.lblNombre = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.lblNumCuenta = new System.Windows.Forms.Label();
@@ -39,6 +38,9 @@ namespace ATMC
             this.btnDeposito = new System.Windows.Forms.Button();
             this.btnRetiro = new System.Windows.Forms.Button();
             this.btnEstado = new System.Windows.Forms.Button();
+            this.txtSaldo = new System.Windows.Forms.TextBox();
+            this.lblCantidad = new System.Windows.Forms.Label();
+            this.txtCantidad = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lblNombre
@@ -57,7 +59,6 @@ namespace ATMC
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(406, 22);
             this.txtNombre.TabIndex = 1;
-            this.txtNombre.Text = "Cuenta Free";
             // 
             // lblNumCuenta
             // 
@@ -75,7 +76,6 @@ namespace ATMC
             this.txtNumCuenta.Name = "txtNumCuenta";
             this.txtNumCuenta.Size = new System.Drawing.Size(405, 22);
             this.txtNumCuenta.TabIndex = 3;
-            this.txtNumCuenta.Text = "00000000";
             // 
             // lblSaldo
             // 
@@ -91,44 +91,71 @@ namespace ATMC
             this.lblValorSaldo.AutoSize = true;
             this.lblValorSaldo.Location = new System.Drawing.Point(78, 251);
             this.lblValorSaldo.Name = "lblValorSaldo";
-            this.lblValorSaldo.Size = new System.Drawing.Size(20, 17);
+            this.lblValorSaldo.Size = new System.Drawing.Size(0, 17);
             this.lblValorSaldo.TabIndex = 5;
-            //this.lblValorSaldo.Text = "$ "+ cuenta.Saldo;
             // 
             // btnDeposito
             // 
-            this.btnDeposito.Location = new System.Drawing.Point(15, 301);
+            this.btnDeposito.Location = new System.Drawing.Point(15, 450);
             this.btnDeposito.Name = "btnDeposito";
             this.btnDeposito.Size = new System.Drawing.Size(75, 23);
             this.btnDeposito.TabIndex = 6;
             this.btnDeposito.Text = "Deposito";
             this.btnDeposito.UseVisualStyleBackColor = true;
+            this.btnDeposito.Click += new System.EventHandler(this.btnDeposito_Click);
             // 
             // btnRetiro
             // 
-            this.btnRetiro.Location = new System.Drawing.Point(169, 301);
+            this.btnRetiro.Location = new System.Drawing.Point(169, 450);
             this.btnRetiro.Name = "btnRetiro";
             this.btnRetiro.Size = new System.Drawing.Size(75, 23);
             this.btnRetiro.TabIndex = 7;
             this.btnRetiro.Text = "Retiro";
             this.btnRetiro.UseVisualStyleBackColor = true;
-            this.btnRetiro.MouseLeave += new System.EventHandler(this.btnRetiro_MouseLeave);
-            this.btnRetiro.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnRetiro_MouseMove);
+            this.btnRetiro.Click += new System.EventHandler(this.btnRetiro_Click);
             // 
             // btnEstado
             // 
-            this.btnEstado.Location = new System.Drawing.Point(345, 301);
+            this.btnEstado.Location = new System.Drawing.Point(345, 450);
             this.btnEstado.Name = "btnEstado";
             this.btnEstado.Size = new System.Drawing.Size(75, 23);
             this.btnEstado.TabIndex = 8;
             this.btnEstado.Text = "Estado";
             this.btnEstado.UseVisualStyleBackColor = true;
+            this.btnEstado.Click += new System.EventHandler(this.btnEstado_Click);
+            // 
+            // txtSaldo
+            // 
+            this.txtSaldo.Enabled = false;
+            this.txtSaldo.Location = new System.Drawing.Point(16, 281);
+            this.txtSaldo.Name = "txtSaldo";
+            this.txtSaldo.Size = new System.Drawing.Size(405, 22);
+            this.txtSaldo.TabIndex = 9;
+            // 
+            // lblCantidad
+            // 
+            this.lblCantidad.AutoSize = true;
+            this.lblCantidad.Location = new System.Drawing.Point(12, 336);
+            this.lblCantidad.Name = "lblCantidad";
+            this.lblCantidad.Size = new System.Drawing.Size(64, 17);
+            this.lblCantidad.TabIndex = 10;
+            this.lblCantidad.Text = "Cantidad";
+            // 
+            // txtCantidad
+            // 
+            this.txtCantidad.Location = new System.Drawing.Point(16, 365);
+            this.txtCantidad.Name = "txtCantidad";
+            this.txtCantidad.Size = new System.Drawing.Size(404, 22);
+            this.txtCantidad.TabIndex = 11;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(462, 584);
+            this.Controls.Add(this.txtCantidad);
+            this.Controls.Add(this.lblCantidad);
+            this.Controls.Add(this.txtSaldo);
             this.Controls.Add(this.btnEstado);
             this.Controls.Add(this.btnRetiro);
             this.Controls.Add(this.btnDeposito);
@@ -140,6 +167,7 @@ namespace ATMC
             this.Controls.Add(this.lblNombre);
             this.Name = "Form1";
             this.Text = "CAjero ATM C";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -156,7 +184,9 @@ namespace ATMC
         private System.Windows.Forms.Button btnDeposito;
         private System.Windows.Forms.Button btnRetiro;
         private System.Windows.Forms.Button btnEstado;
-        private CuentaFree cuenta;
+        private System.Windows.Forms.TextBox txtSaldo;
+        private System.Windows.Forms.Label lblCantidad;
+        private System.Windows.Forms.TextBox txtCantidad;
     }
 }
 

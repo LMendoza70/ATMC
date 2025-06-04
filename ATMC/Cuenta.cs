@@ -42,7 +42,7 @@ namespace ATMC
         abstract public bool Retiro(float cantidad);
         public string Estado()
         {
-            return "La cuenta : " + numCuenta + " de : " + nombre + " Tiene : $" + saldo;
+            return "La cuenta : " + numCuenta + "\nde : " + nombre + "\nTiene : $" + saldo;
         }
     }
 }
