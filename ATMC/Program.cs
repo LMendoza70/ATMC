@@ -16,7 +16,7 @@ namespace ATMC
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmCuentaempresa());
+            Application.Run(new Form1());
         }
     }
 }

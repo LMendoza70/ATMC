@@ -12,21 +12,16 @@ namespace ATMC
 {
     public partial class Form1 : Form
     {
-<<<<<<< HEAD
+
 
         //definimos atributos
         private CuentaFree cuenta;
-        public Form1()
-        {
-            cuenta = new CuentaFree();
-=======
-        //creamos el objeto de la clase cuenta como atributo de la clase
-        private CuentaFree cuenta;
+        
         public Form1()
         {
             //inizializamos el objeto en el contructor
             cuenta=new CuentaFree();
->>>>>>> 00b5aed459f2000a0515ce50e2f92eb873cf0c92
+
             InitializeComponent();
         }
 
@@ -71,6 +66,19 @@ namespace ATMC
         private void btnEstado_Click(object sender, EventArgs e)
         {
             MessageBox.Show(cuenta.Estado(),"Cajero ATM");
+        }
+
+        private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e)
+        { 
+            //funcion que arroje un booleano 
+            if(!char.IsDigit(e.KeyChar))
+            {
+                if(e.KeyChar != (char)Keys.Back)
+                    //validamos que acepte valores negativos
+                    e.Handled = true;
+            }
+           
+            //MessageBox.Show("Hola presionaste la tecla " + e.KeyChar + "\nel valor de la caja actualmente es : " + txtCantidad.Text);
         }
     }
 }
