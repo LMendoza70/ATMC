@@ -15,6 +15,12 @@ namespace ATMC
         {
             nombre = "Cuenta JR";
         }
+        public CuentaJR(string NC,string nom,float sal)
+        {
+            numCuenta = NC;
+            nombre = nom;
+            saldo = sal;
+        }
         //Metodos
         public override bool Deposito(float cantidad)
         {
