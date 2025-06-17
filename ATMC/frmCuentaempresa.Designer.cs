@@ -266,7 +266,9 @@ namespace ATMC
             this.dtvCategorias.RowTemplate.Height = 24;
             this.dtvCategorias.Size = new System.Drawing.Size(778, 223);
             this.dtvCategorias.TabIndex = 21;
+            this.dtvCategorias.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtvCategorias_CellClick);
             this.dtvCategorias.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtvCategorias_CellContentClick);
+            this.dtvCategorias.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtvCategorias_CellEnter);
             // 
             // label5
             // 

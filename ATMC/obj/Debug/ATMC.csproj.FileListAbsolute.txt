@@ -9,3 +9,4 @@ D:\2025-2\Practicas\ATMC\ATMC\obj\Debug\ATMC.exe
 D:\2025-2\Practicas\ATMC\ATMC\obj\Debug\ATMC.pdb
 D:\2025-2\Practicas\ATMC\ATMC\obj\Debug\ATMC.Form1.resources
 D:\2025-2\Practicas\ATMC\ATMC\obj\Debug\ATMC.frmCuentaempresa.resources
+D:\2025-2\Practicas\ATMC\ATMC\obj\Debug\ATMC.frmPrincipal.resources

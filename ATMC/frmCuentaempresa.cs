@@ -111,5 +111,27 @@ namespace ATMC
             }
             
         }
+
+        private void dtvCategorias_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                CuentaJR seleccion = (CuentaJR)dtvCategorias.Rows[e.RowIndex].DataBoundItem;
+                txtCliente.Text = seleccion.Nombre;
+                txtCuenta.Text = seleccion.NumCuenta;
+                txtSaldo.Text = "$ " + seleccion.Saldo;
+            }
+        }
+
+        private void dtvCategorias_CellEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                CuentaJR seleccion = (CuentaJR)dtvCategorias.Rows[e.RowIndex].DataBoundItem;
+                txtCliente.Text = seleccion.Nombre;
+                txtCuenta.Text = seleccion.NumCuenta;
+                txtSaldo.Text = "$ " + seleccion.Saldo;
+            }
+        }
     }
 }
