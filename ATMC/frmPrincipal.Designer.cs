@@ -33,6 +33,7 @@ namespace ATMC
             this.tsmTareas = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmFrm1 = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmFrmEmpresa = new System.Windows.Forms.ToolStripMenuItem();
+            this.baseDeDatosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,7 +52,8 @@ namespace ATMC
             // 
             this.tsmTareas.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmFrm1,
-            this.tsmFrmEmpresa});
+            this.tsmFrmEmpresa,
+            this.baseDeDatosToolStripMenuItem});
             this.tsmTareas.Name = "tsmTareas";
             this.tsmTareas.Size = new System.Drawing.Size(64, 24);
             this.tsmTareas.Text = "Tareas";
@@ -69,6 +71,13 @@ namespace ATMC
             this.tsmFrmEmpresa.Size = new System.Drawing.Size(275, 26);
             this.tsmFrmEmpresa.Text = "Formulario Cuenta empresa";
             this.tsmFrmEmpresa.Click += new System.EventHandler(this.tsmFrmEmpresa_Click);
+            // 
+            // baseDeDatosToolStripMenuItem
+            // 
+            this.baseDeDatosToolStripMenuItem.Name = "baseDeDatosToolStripMenuItem";
+            this.baseDeDatosToolStripMenuItem.Size = new System.Drawing.Size(275, 26);
+            this.baseDeDatosToolStripMenuItem.Text = "Base de datos";
+            this.baseDeDatosToolStripMenuItem.Click += new System.EventHandler(this.baseDeDatosToolStripMenuItem_Click);
             // 
             // frmPrincipal
             // 
@@ -93,5 +102,6 @@ namespace ATMC
         private System.Windows.Forms.ToolStripMenuItem tsmTareas;
         private System.Windows.Forms.ToolStripMenuItem tsmFrm1;
         private System.Windows.Forms.ToolStripMenuItem tsmFrmEmpresa;
+        private System.Windows.Forms.ToolStripMenuItem baseDeDatosToolStripMenuItem;
     }
 }

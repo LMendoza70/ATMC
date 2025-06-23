@@ -15,6 +15,7 @@ namespace ATMC
         //creo una instancia del formulario a controlar
         private Form1 form1;
         private frmCuentaempresa empresa;
+        private frmBase formbase;
         public frmPrincipal()
         {
             InitializeComponent();
@@ -46,6 +47,20 @@ namespace ATMC
             else
             {
                 empresa.BringToFront();
+            }
+        }
+
+        private void baseDeDatosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(formbase==null || formbase.IsDisposed)
+            {
+                formbase = new frmBase();
+                formbase.MdiParent = this;
+                formbase.Show();
+            }
+            else
+            {
+                formbase.BringToFront();
             }
         }
     }
