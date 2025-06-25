@@ -33,17 +33,76 @@ namespace ATMC
             //comprobamos que se conecto correctamente
             if (con != null)
             {
-                MessageBox.Show("Conectado Correctamenete");
+                //MessageBox.Show("Conectado Correctamenete");
                 //creamos la consulta
-                string consulta = "SELECT nombre,rol_id FROM usuario";
+                string consulta = "SELECT usuario.id, usuario.nombre, usuario.password, rol.nombre AS rol_name FROM usuario,rol WHERE usuario.rol_id=rol.id";
                 //creamos un adaptador 
+                MySqlDataAdapter adapter = new MySqlDataAdapter(consulta, con);
                 //creamos un datatable
+                DataTable dataTable = new DataTable();
+                adapter.Fill(dataTable);
                 //asignamos el datatable al souce del datagrid
+                dgvDatos.DataSource = dataTable;
+                dgvDatos.Columns["id"].Visible = false;
+
+                //llenamos el combo
+                string consulta2 = "select * from rol";
+                MySqlDataAdapter adapter2 = new MySqlDataAdapter(consulta2, con);
+                con.Close();
+                DataTable dataTable2 = new DataTable();
+                adapter2.Fill(dataTable2);
+                cmbRoles.DataSource = dataTable2;
+                cmbRoles.DisplayMember = "nombre";
+                cmbRoles.ValueMember = "id";
             }
             else
             {
                 MessageBox.Show("Error al conectar");
             }
+        }
+
+        private void dgvDatos_CellEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow fila = dgvDatos.Rows[e.RowIndex];
+                txtNombre.Text = fila.Cells["nombre"].Value?.ToString();
+                txtPassword.Text = fila.Cells[2].Value?.ToString();
+                cmbRoles.Text = fila.Cells[3].Value?.ToString();
+            }
+        }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            string nom = txtNombre.Text;
+            string pass = txtPassword.Text;
+            int rolId = Convert.ToInt32(cmbRoles.SelectedValue);
+
+            pass = BCrypt.Net.BCrypt.HashPassword(pass);
+
+            coneccion = new clsConeccion();
+            MySqlConnection conn = coneccion.getConeccion();
+
+            string consulta = "INSERT INTO usuario (nombre, password, rol_id)"+
+                "VALUES (@nombre, @password, @rol_id)";
+
+            MySqlCommand command = new MySqlCommand(consulta,conn);
+            command.Parameters.AddWithValue("@nombre", nom);
+            command.Parameters.AddWithValue("@password", pass);
+            command.Parameters.AddWithValue("@rol_id",rolId);
+            int filasAfectadas= command.ExecuteNonQuery();
+            conn.Close();
+
+            if (filasAfectadas > 0)
+            {
+                MessageBox.Show("Registro extitoso...");
+                cargaDatos();
+            }
+            else
+            {
+                MessageBox.Show("Algo anda mal...");
+            }
+
         }
     }
 }
