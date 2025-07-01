@@ -67,8 +67,9 @@ namespace ATMC
             {
                 DataGridViewRow fila = dgvDatos.Rows[e.RowIndex];
                 txtNombre.Text = fila.Cells["nombre"].Value?.ToString();
-                txtPassword.Text = fila.Cells[2].Value?.ToString();
+                //txtPassword.Text = fila.Cells[2].Value?.ToString();
                 cmbRoles.Text = fila.Cells[3].Value?.ToString();
+                lblId.Text = fila.Cells["id"].Value.ToString();
             }
         }
 
@@ -101,6 +102,56 @@ namespace ATMC
             else
             {
                 MessageBox.Show("Algo anda mal...");
+            }
+
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            //vamos a almacenar los datos que quiero editar 
+            int id = Convert.ToInt32(lblId.Text);
+            string nombre = txtNombre.Text;
+            string pass = txtPassword.Text;
+            int rol = Convert.ToInt32(cmbRoles.SelectedValue);
+
+            string passwordHash = "";
+            if (!string.IsNullOrEmpty(pass))
+            {
+                passwordHash = BCrypt.Net.BCrypt.HashPassword(pass);
+            }
+
+            coneccion = new clsConeccion();
+            MySqlConnection con = coneccion.getConeccion();
+
+            string consulta;
+            MySqlCommand command;
+
+            if (!string.IsNullOrEmpty(passwordHash))
+            {
+                consulta = "update usuario set nombre=@nombre, password=@password, rol_id=@rol where id=@id";
+                command = new MySqlCommand(consulta, con);
+                command.Parameters.AddWithValue("@password", passwordHash);
+            }
+            else
+            {
+                consulta = "update usuario set nombre=@nombre, rol_id=@rol where id=@id";
+                command = new MySqlCommand(consulta, con);
+            }
+            command.Parameters.AddWithValue("@nombre",nombre);
+            command.Parameters.AddWithValue("@rol", rol);
+            command.Parameters.AddWithValue("@id",id);
+
+            int filasAfectadas = command.ExecuteNonQuery();
+            con.Close();
+
+            if (filasAfectadas > 0)
+            {
+                MessageBox.Show("Registro editado existosamente...");
+                cargaDatos();
+            }
+            else
+            {
+                MessageBox.Show("Error al actualizar...");
             }
 
         }

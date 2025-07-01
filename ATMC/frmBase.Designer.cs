@@ -33,11 +33,12 @@ namespace ATMC
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblId = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.cmbRoles = new System.Windows.Forms.ComboBox();
             this.btnNuevo = new System.Windows.Forms.Button();
+            this.btnEditar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,7 +46,7 @@ namespace ATMC
             // 
             this.dgvDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDatos.Location = new System.Drawing.Point(11, 243);
-            this.dgvDatos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvDatos.Margin = new System.Windows.Forms.Padding(2);
             this.dgvDatos.Name = "dgvDatos";
             this.dgvDatos.RowHeadersWidth = 51;
             this.dgvDatos.RowTemplate.Height = 24;
@@ -80,15 +81,15 @@ namespace ATMC
             this.label3.TabIndex = 3;
             this.label3.Text = "Rol";
             // 
-            // label4
+            // lblId
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(574, 99);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(17, 15);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "id";
-            this.label4.Visible = false;
+            this.lblId.AutoSize = true;
+            this.lblId.Location = new System.Drawing.Point(574, 99);
+            this.lblId.Name = "lblId";
+            this.lblId.Size = new System.Drawing.Size(17, 15);
+            this.lblId.TabIndex = 4;
+            this.lblId.Text = "id";
+            this.lblId.Visible = false;
             // 
             // txtNombre
             // 
@@ -122,21 +123,32 @@ namespace ATMC
             this.btnNuevo.UseVisualStyleBackColor = true;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
+            // btnEditar
+            // 
+            this.btnEditar.Location = new System.Drawing.Point(229, 184);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(75, 23);
+            this.btnEditar.TabIndex = 9;
+            this.btnEditar.Text = "Editar";
+            this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
+            // 
             // frmBase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(792, 502);
+            this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.cmbRoles);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtNombre);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.lblId);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvDatos);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmBase";
             this.Text = "frmBase";
             this.Load += new System.EventHandler(this.frmBase_Load);
@@ -152,10 +164,11 @@ namespace ATMC
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblId;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.ComboBox cmbRoles;
         private System.Windows.Forms.Button btnNuevo;
+        private System.Windows.Forms.Button btnEditar;
     }
 }
