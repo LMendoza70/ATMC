@@ -155,5 +155,55 @@ namespace ATMC
             }
 
         }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(lblId.Text);
+            string nombre = txtNombre.Text;
+
+            DialogResult result = MessageBox.Show("En verdad quieres eliminar el registro de : "+nombre+"?"
+                ,"Eliminar",MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.No)
+            {
+                return;
+            }
+
+            try
+            {
+                coneccion = new clsConeccion();
+                MySqlConnection conn = coneccion.getConeccion();
+
+                string consulta = "delete from usuario where id=@id";
+                MySqlCommand command = new MySqlCommand(consulta, conn);
+                command.Parameters.AddWithValue("@id", id);
+
+                int filasAfectadas = command.ExecuteNonQuery();
+                conn.Close();
+                if (filasAfectadas > 0)
+                {
+                    MessageBox.Show("El usuario se elimino Correctamente...");
+                    cargaDatos();
+                }
+                else
+                {
+                    MessageBox.Show("No se elimino el usuario");
+                }
+            }
+            catch(MySqlException ex)
+            {
+                if (ex.Number == 1451)
+                {
+                    MessageBox.Show("El usuario no se elimno por que tiene relacion con otras tablas...");
+                }
+                else
+                {
+                    MessageBox.Show("no se pudo por que : " + ex.Message);
+                }
+                
+            }
+
+            
+        }
     }
 }

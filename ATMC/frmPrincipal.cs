@@ -16,9 +16,14 @@ namespace ATMC
         private Form1 form1;
         private frmCuentaempresa empresa;
         private frmBase formbase;
-        public frmPrincipal()
+        private string usuario;
+        private int rol_id;
+        public frmPrincipal(string user,int rol)
         {
+            usuario = user;
+            rol_id = rol;
             InitializeComponent();
+            
         }
 
         private void tsmFrm1_Click(object sender, EventArgs e)
@@ -62,6 +67,11 @@ namespace ATMC
             {
                 formbase.BringToFront();
             }
+        }
+
+        private void frmPrincipal_Load(object sender, EventArgs e)
+        {
+            this.Text = "Welcome " + usuario;
         }
     }
 }

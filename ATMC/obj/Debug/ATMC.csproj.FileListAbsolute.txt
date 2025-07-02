@@ -46,3 +46,4 @@ D:\2025-2\Practicas\ATMC\ATMC\obj\Debug\ATMC.csproj.CopyComplete
 D:\2025-2\Practicas\ATMC\ATMC\obj\Debug\ATMC.frmBase.resources
 D:\2025-2\Practicas\ATMC\ATMC\bin\Debug\BCrypt.Net-Next.dll
 D:\2025-2\Practicas\ATMC\ATMC\bin\Debug\BCrypt.Net-Next.xml
+D:\2025-2\Practicas\ATMC\ATMC\obj\Debug\ATMC.frmLogin.resources
