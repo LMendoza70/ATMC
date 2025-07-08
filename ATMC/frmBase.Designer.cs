@@ -40,6 +40,7 @@ namespace ATMC
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
+            this.txtBusqueda = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -99,7 +100,7 @@ namespace ATMC
             // txtNombre
             // 
             this.txtNombre.Location = new System.Drawing.Point(33, 167);
-            this.txtNombre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(4);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(204, 22);
             this.txtNombre.TabIndex = 5;
@@ -107,7 +108,7 @@ namespace ATMC
             // txtPassword
             // 
             this.txtPassword.Location = new System.Drawing.Point(305, 167);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(4);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(196, 22);
             this.txtPassword.TabIndex = 6;
@@ -116,7 +117,7 @@ namespace ATMC
             // 
             this.cmbRoles.FormattingEnabled = true;
             this.cmbRoles.Location = new System.Drawing.Point(567, 167);
-            this.cmbRoles.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbRoles.Margin = new System.Windows.Forms.Padding(4);
             this.cmbRoles.Name = "cmbRoles";
             this.cmbRoles.Size = new System.Drawing.Size(160, 24);
             this.cmbRoles.TabIndex = 7;
@@ -124,7 +125,7 @@ namespace ATMC
             // btnNuevo
             // 
             this.btnNuevo.Location = new System.Drawing.Point(33, 226);
-            this.btnNuevo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnNuevo.Margin = new System.Windows.Forms.Padding(4);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(100, 28);
             this.btnNuevo.TabIndex = 8;
@@ -135,7 +136,7 @@ namespace ATMC
             // btnEditar
             // 
             this.btnEditar.Location = new System.Drawing.Point(305, 226);
-            this.btnEditar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEditar.Margin = new System.Windows.Forms.Padding(4);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(100, 28);
             this.btnEditar.TabIndex = 9;
@@ -153,11 +154,20 @@ namespace ATMC
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
+            // txtBusqueda
+            // 
+            this.txtBusqueda.Location = new System.Drawing.Point(799, 232);
+            this.txtBusqueda.Name = "txtBusqueda";
+            this.txtBusqueda.Size = new System.Drawing.Size(181, 22);
+            this.txtBusqueda.TabIndex = 11;
+            this.txtBusqueda.TextChanged += new System.EventHandler(this.txtBusqueda_TextChanged);
+            // 
             // frmBase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1056, 618);
+            this.Controls.Add(this.txtBusqueda);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnNuevo);
@@ -192,5 +202,6 @@ namespace ATMC
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.TextBox txtBusqueda;
     }
 }

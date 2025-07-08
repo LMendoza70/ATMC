@@ -205,5 +205,24 @@ namespace ATMC
 
             
         }
+
+        private void txtBusqueda_TextChanged(object sender, EventArgs e)
+        {
+            string filtro = txtBusqueda.Text;
+            coneccion = new clsConeccion();
+            MySqlConnection conn = coneccion.getConeccion();
+
+            string consulta = "SELECT usuario.id, usuario.nombre, usuario.password, rol.nombre AS rol_name FROM usuario,rol WHERE usuario.rol_id=rol.id and usuario.nombre like @busqueda";
+
+            MySqlCommand command = new MySqlCommand(consulta, conn);
+            command.Parameters.AddWithValue("@busqueda","%"+ filtro +"%");
+
+            MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+            dgvDatos.DataSource = table;
+            dgvDatos.Columns["id"].Visible = false;
+            conn.Close();
+        }
     }
 }
